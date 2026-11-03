@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>JPO Grand Est</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f20b31'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='Arial' font-weight='700' fill='white'%3EBS%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{--bg:#07172c;--card:#0b2443;--line:#1f6da1;--red:#f20b31;--green:#41ef86;--gold:#ffc43d;--text:#fff;--muted:#a9bdd2}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#103a63 0,#07172c 38%,#040c18 100%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}.app{max-width:480px;margin:auto;min-height:100vh;padding:14px 14px 90px}.brand{display:flex;align-items:center;gap:10px;font-weight:800}.logo{background:var(--red);padding:12px 9px;font-size:24px}.small{font-size:12px;color:var(--muted)}.asof{margin-top:2px;font-size:11px;color:#7fdfff}.region{margin:14px 0;padding:15px;border:1px solid #13b8e9;border-radius:18px;background:linear-gradient(135deg,#103c63,#071d38);display:flex;justify-content:space-between;align-items:center}.rank{font-size:30px;font-weight:900}.up{color:var(--green);font-weight:800}.down{color:#ff6580;font-weight:800}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#091a31;padding:4px;border-radius:24px}.tab{padding:12px;border:0;border-radius:20px;color:white;background:transparent;font-weight:800;cursor:pointer}.tab.active{background:linear-gradient(90deg,#f20b31,#ff3f62);box-shadow:0 0 18px #f20b3166}.title{text-align:center;margin:20px 0 12px}.title h1{font-size:23px;margin:0}.title b{color:#78f57b}.podium{display:grid;grid-template-columns:1fr 1.1fr 1fr;align-items:end;gap:8px;margin:25px 0 16px}.p{background:linear-gradient(180deg,#163a61,#0b1c35);border-radius:22px;padding:12px 6px;text-align:center;border:1px solid #355b82;transition:.5s;min-width:0}.p.first{padding-top:20px;border-color:#ffc43d;box-shadow:0 0 25px #ffc43d55;transform:translateY(-10px)}.leader-badge{display:inline-block;margin:0 0 7px;padding:4px 7px;border-radius:12px;background:linear-gradient(90deg,#ffc43d,#fff09a,#ffc43d);background-size:200% 100%;color:#4a3200;font-size:9px;font-weight:950;text-transform:uppercase;animation:leaderShine 1.6s linear infinite}.avatar{width:70px;height:70px;border-radius:50%;margin:auto;display:grid;place-items:center;font-size:34px;background:#173f67;border:4px solid #b8d8ff;position:relative}.first .avatar{border-color:#ffc43d}.glasses{position:absolute;font-size:25px;left:50%;top:22px;transform:translateX(-50%)}.medal{font-size:24px}.name{font-weight:900;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.store{font-size:11px;color:#c6d3df;min-height:30px}.ca{font-size:20px;font-weight:900;margin-top:8px}.first .ca{color:#ffd34e}.table{border:1px solid #244866;border-radius:16px;overflow:hidden;background:#071a31}.row{display:grid;grid-template-columns:28px 1.25fr 1fr 88px;gap:5px;padding:11px 8px;border-bottom:1px solid #173550;align-items:center;font-size:13px}.row:last-child{border:0}.row.head{font-size:10px;color:#a9bdd2;font-weight:800}.money{text-align:right;font-weight:800}.panel{margin-top:18px;padding:16px;border:1px solid #1f6da1;border-radius:18px;background:#081d36}.bigstats{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}.bigstats>div{border-right:1px solid #28435e}.bigstats>div:last-child{border:0}.bigstats strong{display:block;font-size:27px}.progress{height:18px;border:1px solid #265172;border-radius:20px;overflow:hidden;margin-top:12px}.bar{height:100%;width:10.9%;background:linear-gradient(90deg,#2bdc74,#84f68c)}.news-card{margin-top:16px;overflow:hidden;border:1px solid #2d5f83;border-radius:20px;background:#081d36}.news-card img{display:block;width:100%;height:auto}.news-copy{padding:16px}.news-copy h2{margin:0 0 8px}.download{display:block;margin-top:14px;padding:13px 16px;border-radius:14px;background:linear-gradient(90deg,#f20b31,#ff3f62);color:#fff;text-align:center;text-decoration:none;font-weight:900}.footer{position:fixed;bottom:0;left:0;right:0;background:#07152aee;border-top:1px solid #183b5b}.footerin{max-width:480px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);padding:6px}.nav{border:0;background:transparent;text-align:center;color:#9db0c6;font:inherit;font-size:12px;padding:5px;cursor:pointer}.nav.active{color:#ff3557}.hide{display:none!important}.pulse{animation:pulse 1.5s infinite}@keyframes pulse{50%{transform:scale(1.05)}}@keyframes leaderShine{to{background-position:-200% 0}}
+    .nav.news-alert{position:relative;color:#ffd34e;animation:newsGlow 1.2s ease-in-out infinite alternate}.nav.news-alert::after{content:'NOUVEAU';position:absolute;top:-7px;right:3px;padding:2px 5px;border-radius:8px;background:#ffd34e;color:#3b2800;font-size:8px;font-weight:950;box-shadow:0 0 12px #ffd34e}.news-card.featured{border-color:#ffd34e;box-shadow:0 0 20px #ffd34e44}.news-card.featured h2{color:#ffd34e}@keyframes newsGlow{to{text-shadow:0 0 12px #ffd34e;transform:translateY(-2px)}}
+    .challenge-poster{display:block;width:100%;height:auto;margin-top:16px;border:1px solid #ffc43d;border-radius:18px;box-shadow:0 0 22px #ffc43d44}
+    @media(max-width:380px){.row{grid-template-columns:24px 1.2fr .9fr 76px;font-size:12px}.avatar{width:62px;height:62px}.name{font-size:14px}.ca{font-size:17px}}
+    @media(prefers-reduced-motion:reduce){.pulse{animation:none}}
+  </style>
+<style>.bar{width:81.3%}</style>
+</head>
+<body>
+<main class="app">
+  <div class="brand"><div class="logo">BUT</div><div>CUISINES<div class="small">GRAND EST · JPO</div><div class="asof">Mise à jour au 3 novembre 2026</div></div></div>
+  <div id="rankingsPage">
+  <section class="region"><div>🏆 <b>GRAND EST</b><div><span class="rank">#11</span> au national</div><span class="up">▲ +5,2 % vs N−1</span></div><div><b>1 690 K€</b><div class="small">CA Cuisine</div></div></section>
+  <div class="tabs"><button class="tab active" data-view="sellers">👤 Vendeurs</button><button class="tab" data-view="stores">🏬 Magasins</button></div>
+  <section id="sellers"><div class="title"><h1>CLASSEMENT VENDEURS</h1><b>CA TTC CUISINE BUFFET</b></div><div class="podium" id="sellerPodium"></div><div class="table" id="sellerTable"></div></section>
+  <section id="stores" class="hide"><div class="title"><h1>CLASSEMENT MAGASINS</h1><b>CA TTC CUISINE</b></div><div class="podium" id="storePodium"></div><div class="table" id="storeTable"></div></section>
+  <section class="panel"><div class="bigstats"><div><strong>11e</strong><span class="small">/14 national</span></div><div><strong>1 690 K€</strong><span class="small">CA Cuisine</span></div><div><strong class="up">+5,2%</strong><span class="small">vs N−1</span></div></div><div style="margin-top:16px"><b>Objectif minimum région JPO</b><div class="progress"><div class="bar"></div></div><div class="small" style="margin-top:5px">1 690 K€ / 2 078 K€ · 81,3%</div></div></section>
+  </div>
+  <section id="challengesPage" class="hide"><div class="title"><h1>CHALLENGE RÉGIONAL</h1><b>MANCHE RETOUR · DU 23 AU 26 OCTOBRE</b></div><img class="challenge-poster" src="duel-manche-retour.png" alt="Duel des régions, manche retour entre la Bourgogne-Savoie et le Grand Est"><section class="panel"><div class="bigstats"><div><strong>1 690</strong><span class="small">K€ réalisés</span></div><div><strong>2 078</strong><span class="small">K€ objectif minimum</span></div><div><strong class="up">81,3%</strong><span class="small">atteints</span></div></div><div class="progress"><div class="bar"></div></div></section></section>
+  <section id="newsPage" class="hide"><div class="title"><h1>ACTUALITÉS</h1><b>INFORMATIONS DU MOMENT</b></div><article class="news-card featured"><div class="news-copy"><h2>✨ Nouvelle fonctionnalité disponible sur Planner</h2><p>Lorsque vous faites un clic droit sur un meuble, vous accédez directement à un menu rapide proposant six fonctions : <b>modifier, replacer, ouvrir, positionner, dupliquer et supprimer</b>.</p><p>Vous bénéficiez également d’un accès plus rapide à l’éditeur de plan de travail.</p></div></article><article class="news-card"><div class="news-copy"><h2>Cuisine Weeks</h2><p>Jusqu’à <b>−40 %</b> sur une sélection de cuisines et plans de travail, avec paiement en <b>20 fois sans frais</b>.</p><p class="small">Offre valable jusqu’au 26 octobre 2026. Voir conditions en magasin.</p></div></article><article class="news-card"><div class="news-copy"><h2>Applicatif Planner HOP</h2><p>Bonjour à tous,</p><p>La gamme HOP est actuellement en cours de déploiement sur le SMO. Le Planner n’est pas encore disponible à ce jour. Dès sa mise en service, une communication dédiée vous sera adressée.</p><p>Dans cette attente, merci de ne pas cliquer sur le bouton HOP. Nous vous remercions pour votre patience et votre compréhension.</p></div></article></section>
+</main>
+<footer class="footer"><div class="footerin"><button class="nav active" data-page="rankingsPage">🏆<br>Classement</button><button class="nav" data-page="challengesPage">🎯<br>Challenges</button><button class="nav news-alert" data-page="newsPage">📣<br>Actualités</button></div></footer>
+<script>
+const sellers=[
+  {name:'Smahan',store:'Mulhouse',ca:250767,face:'👩🏽'},
+  {name:'Déborah',store:'Cosy Saint-Dié',ca:132437,face:'👩🏻'},
+  {name:'Thierry',store:'Épinal',ca:131644,face:'👨🏻'},
+  {name:'Odile',store:'Saint-Dizier',ca:116353,face:'👩🏻'},
+  {name:'Stéphane',store:'Strasbourg Nord',ca:116337,face:'👨🏻'},
+  {name:'Daniel',store:'Sélestat',ca:88940,face:'👨🏻',glasses:true},
+  {name:'Ayoub',store:'Colmar',ca:87609,face:'👨🏽'},
+  {name:'Émilie',store:'Thionville',ca:78600,face:'👩🏻'},
+  {name:'Aurélie',store:'Metz',ca:77760,face:'👩🏻'},
+  {name:'Jean-Michel',store:'Strasbourg Nord',ca:71161,face:'👨🏻'},
+  {name:'Fatma',store:'Sélestat',ca:69288,face:'👩🏽'},
+  {name:'Bilal',store:'Saint-Avold',ca:59516,face:'👨🏽'},
+  {name:'Guillaume',store:'Metz',ca:49404,face:'👨🏻'},
+  {name:'Styvens',store:'Nancy',ca:46141,face:'👨🏻'},
+  {name:'Emmanuelle',store:'Sarreguemines',ca:44569,face:'👩🏻'},
+  {name:'Louise',store:'Remiremont',ca:39052,face:'👩🏻'},
+  {name:'Ilian',store:'Thionville',ca:36252,face:'👨🏻'},
+  {name:'Olivier',store:'Nancy',ca:35399,face:'👨🏻'},
+  {name:'Cédric',store:'Strasbourg Nord',ca:33058,face:'👨🏻'},
+  {name:'Johann',store:'Belfort',ca:22902,face:'👨🏻'},
+  {name:'Émilie Z.',store:'Colmar',ca:3838,face:'👩🏻'},
+  {name:'Florian',store:'Épinal',ca:2929,face:'👨🏻'},
+  {name:'Yohan',store:'Épinal',ca:2449,face:'👨🏻'},
+  {name:'Inès',store:'Sélestat',ca:1512,face:'👩🏽'},
+  {name:'Marlon',store:'Remiremont',ca:453,face:'👨🏻'},
+  {name:'Julie',store:'Metz',ca:388,face:'👩🏻'},
+  {name:'Nathalie',store:'Cosy Sarrebourg',ca:374,face:'👩🏻'},
+  {name:'Sébastien',store:'Mulhouse',ca:227,face:'👨🏻'},
+  {name:'Turgay',store:'Strasbourg Nord',ca:0,face:'👨🏻'},
+  {name:'Pierrick',store:'Thionville',ca:0,face:'👨🏻'},
+  {name:'Malo',store:'Colmar',ca:-1632,face:'👨🏻'}
+];
+const stores=[
+  {name:'Mulhouse',ca:259000},{name:'Strasbourg Nord',ca:224000},{name:'Sélestat',ca:166000},{name:'Épinal',ca:142000},{name:'Metz',ca:139000},{name:'Cosy Saint-Dié',ca:139000},{name:'Thionville',ca:126000},{name:'Saint-Dizier',ca:126000},{name:'Colmar',ca:97000},{name:'Nancy',ca:82000},{name:'Saint-Avold',ca:64000},{name:'Sarreguemines',ca:47000},{name:'Remiremont',ca:43000},{name:'Belfort',ca:34000},{name:'Cosy Sarrebourg',ca:2000}
+];
+const euro=v=>v.toLocaleString('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+const avatar=x=>`<div class="avatar">${x.face||'🏬'}${x.glasses?'<span class="glasses">👓</span>':''}</div>`;
+function renderSellers(){const order=[1,0,2];document.getElementById('sellerPodium').innerHTML=order.map(i=>`<div class="p ${i===0?'first pulse':''}"><div class="medal">${['🥇','🥈','🥉'][i]}</div>${sellers[i].newLeader?'<div class="leader-badge">✨ Nouveau leader ✨</div>':''}${avatar(sellers[i])}<div class="name">${sellers[i].name}</div><div class="store">${sellers[i].store}</div><div class="ca">${euro(sellers[i].ca)}</div></div>`).join('');document.getElementById('sellerTable').innerHTML='<div class="row head"><div>#</div><div>VENDEUR</div><div>MAGASIN</div><div style="text-align:right">CA BUFFET</div></div>'+sellers.slice(3).map((x,j)=>`<div class="row"><b>${j+4}</b><b>${x.name}</b><span class="small">${x.store}</span><span class="money">${euro(x.ca)}</span></div>`).join('')}
+function renderStores(){const total=1690000;const part=x=>(x.ca/total*100).toLocaleString('fr-FR',{maximumFractionDigits:1})+' % de la région';const order=[1,0,2];document.getElementById('storePodium').innerHTML=order.map(i=>`<div class="p ${i===0?'first pulse':''}"><div class="medal">${['🥇','🥈','🥉'][i]}</div>${avatar({face:'🏬'})}<div class="name">${stores[i].name}</div><div class="store">${part(stores[i])}</div><div class="ca">${euro(stores[i].ca)}</div></div>`).join('');document.getElementById('storeTable').innerHTML='<div class="row head"><div>#</div><div>MAGASIN</div><div>PART RÉGION</div><div style="text-align:right">CA CUISINE</div></div>'+stores.slice(3).map((x,j)=>`<div class="row"><b>${j+4}</b><b>${x.name}</b><span class="small">${part(x)}</span><span class="money">${euro(x.ca)}</span></div>`).join('')}
+renderSellers();renderStores();document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('sellers').classList.toggle('hide',b.dataset.view!=='sellers');document.getElementById('stores').classList.toggle('hide',b.dataset.view!=='stores')}));document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));b.classList.add('active');['rankingsPage','challengesPage','newsPage'].forEach(id=>document.getElementById(id).classList.toggle('hide',id!==b.dataset.page));window.scrollTo({top:0,behavior:'smooth'})}));
+</script>
+</body>
+</html>
