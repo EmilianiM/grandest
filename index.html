@@ -1,76 +1,193 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>JPO Grand Est</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f20b31'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='Arial' font-weight='700' fill='white'%3EBS%3C/text%3E%3C/svg%3E">
-  <style>
-    :root{--bg:#07172c;--card:#0b2443;--line:#1f6da1;--red:#f20b31;--green:#41ef86;--gold:#ffc43d;--text:#fff;--muted:#a9bdd2}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#103a63 0,#07172c 38%,#040c18 100%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}.app{max-width:480px;margin:auto;min-height:100vh;padding:14px 14px 90px}.brand{display:flex;align-items:center;gap:10px;font-weight:800}.logo{background:var(--red);padding:12px 9px;font-size:24px}.small{font-size:12px;color:var(--muted)}.asof{margin-top:2px;font-size:11px;color:#7fdfff}.region{margin:14px 0;padding:15px;border:1px solid #13b8e9;border-radius:18px;background:linear-gradient(135deg,#103c63,#071d38);display:flex;justify-content:space-between;align-items:center}.rank{font-size:30px;font-weight:900}.up{color:var(--green);font-weight:800}.down{color:#ff6580;font-weight:800}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#091a31;padding:4px;border-radius:24px}.tab{padding:12px;border:0;border-radius:20px;color:white;background:transparent;font-weight:800;cursor:pointer}.tab.active{background:linear-gradient(90deg,#f20b31,#ff3f62);box-shadow:0 0 18px #f20b3166}.title{text-align:center;margin:20px 0 12px}.title h1{font-size:23px;margin:0}.title b{color:#78f57b}.podium{display:grid;grid-template-columns:1fr 1.1fr 1fr;align-items:end;gap:8px;margin:25px 0 16px}.p{background:linear-gradient(180deg,#163a61,#0b1c35);border-radius:22px;padding:12px 6px;text-align:center;border:1px solid #355b82;transition:.5s;min-width:0}.p.first{padding-top:20px;border-color:#ffc43d;box-shadow:0 0 25px #ffc43d55;transform:translateY(-10px)}.leader-badge{display:inline-block;margin:0 0 7px;padding:4px 7px;border-radius:12px;background:linear-gradient(90deg,#ffc43d,#fff09a,#ffc43d);background-size:200% 100%;color:#4a3200;font-size:9px;font-weight:950;text-transform:uppercase;animation:leaderShine 1.6s linear infinite}.avatar{width:70px;height:70px;border-radius:50%;margin:auto;display:grid;place-items:center;font-size:34px;background:#173f67;border:4px solid #b8d8ff;position:relative}.first .avatar{border-color:#ffc43d}.glasses{position:absolute;font-size:25px;left:50%;top:22px;transform:translateX(-50%)}.medal{font-size:24px}.name{font-weight:900;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.store{font-size:11px;color:#c6d3df;min-height:30px}.ca{font-size:20px;font-weight:900;margin-top:8px}.first .ca{color:#ffd34e}.table{border:1px solid #244866;border-radius:16px;overflow:hidden;background:#071a31}.row{display:grid;grid-template-columns:28px 1.25fr 1fr 88px;gap:5px;padding:11px 8px;border-bottom:1px solid #173550;align-items:center;font-size:13px}.row:last-child{border:0}.row.head{font-size:10px;color:#a9bdd2;font-weight:800}.money{text-align:right;font-weight:800}.panel{margin-top:18px;padding:16px;border:1px solid #1f6da1;border-radius:18px;background:#081d36}.bigstats{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}.bigstats>div{border-right:1px solid #28435e}.bigstats>div:last-child{border:0}.bigstats strong{display:block;font-size:27px}.progress{height:18px;border:1px solid #265172;border-radius:20px;overflow:hidden;margin-top:12px}.bar{height:100%;width:10.9%;background:linear-gradient(90deg,#2bdc74,#84f68c)}.news-card{margin-top:16px;overflow:hidden;border:1px solid #2d5f83;border-radius:20px;background:#081d36}.news-card img{display:block;width:100%;height:auto}.news-copy{padding:16px}.news-copy h2{margin:0 0 8px}.download{display:block;margin-top:14px;padding:13px 16px;border-radius:14px;background:linear-gradient(90deg,#f20b31,#ff3f62);color:#fff;text-align:center;text-decoration:none;font-weight:900}.footer{position:fixed;bottom:0;left:0;right:0;background:#07152aee;border-top:1px solid #183b5b}.footerin{max-width:480px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);padding:6px}.nav{border:0;background:transparent;text-align:center;color:#9db0c6;font:inherit;font-size:12px;padding:5px;cursor:pointer}.nav.active{color:#ff3557}.hide{display:none!important}.pulse{animation:pulse 1.5s infinite}@keyframes pulse{50%{transform:scale(1.05)}}@keyframes leaderShine{to{background-position:-200% 0}}
-    .nav.news-alert{position:relative;color:#ffd34e;animation:newsGlow 1.2s ease-in-out infinite alternate}.nav.news-alert::after{content:'NOUVEAU';position:absolute;top:-7px;right:3px;padding:2px 5px;border-radius:8px;background:#ffd34e;color:#3b2800;font-size:8px;font-weight:950;box-shadow:0 0 12px #ffd34e}.news-card.featured{border-color:#ffd34e;box-shadow:0 0 20px #ffd34e44}.news-card.featured h2{color:#ffd34e}@keyframes newsGlow{to{text-shadow:0 0 12px #ffd34e;transform:translateY(-2px)}}
-    .challenge-poster{display:block;width:100%;height:auto;margin-top:16px;border:1px solid #ffc43d;border-radius:18px;box-shadow:0 0 22px #ffc43d44}
-    @media(max-width:380px){.row{grid-template-columns:24px 1.2fr .9fr 76px;font-size:12px}.avatar{width:62px;height:62px}.name{font-size:14px}.ca{font-size:17px}}
-    @media(prefers-reduced-motion:reduce){.pulse{animation:none}}
-  </style>
-<style>.bar{width:96.3%}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Challenge vendeurs</title>
+<style>
+:root{--red:#e30613;--navy:#07172c;--blue:#103c63;--green:#2bdc74;--text:#fff;--muted:#a9bdd2}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% 0,#103a63,#07172c 40%,#040c18);background-attachment:fixed;color:var(--text);font-family:Arial,sans-serif;min-height:100vh}
+.app{max-width:480px;min-height:100vh;margin:auto;padding:14px 14px 40px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.logo{padding:12px 9px;background:var(--red);font-size:24px;font-weight:900}
+.small{color:var(--muted);font-size:12px}
+.date{margin-top:3px;color:#7fdfff;font-size:11px}
+.region{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0;padding:15px;border:1px solid #13b8e9;border-radius:18px;background:linear-gradient(135deg,#103c63,#071d38)}
+.region > div:last-child{text-align:end}
+.rank{font-size:30px;font-weight:900}
+.up{color:var(--green);font-weight:800}
+.down{color:#ff5a6e;font-weight:800}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px;border-radius:24px;background:#091a31}
+.tab{padding:12px;border:0;border-radius:20px;background:transparent;color:#fff;font-weight:800;cursor:pointer;font-size:14px}
+.tab.active{background:linear-gradient(90deg,#f20b31,#ff3f62)}
+.title{margin:20px 0 12px;text-align:center}
+.title h2{margin:0 0 4px}
+.podium{display:grid;grid-template-columns:1fr 1.1fr 1fr;align-items:end;gap:8px;margin:25px 0 16px}
+.podium-card{min-width:0;padding:12px 6px;border:1px solid #355b82;border-radius:22px;background:linear-gradient(180deg,#163a61,#0b1c35);text-align:center}
+.podium-card.first{padding-top:20px;border-color:#ffc43d;box-shadow:0 0 25px #ffc43d55;transform:translateY(-10px)}
+.medal{font-size:24px}
+.avatar{display:grid;width:64px;height:64px;margin:auto;place-items:center;border:4px solid #b8d8ff;border-radius:50%;background:#173f67;font-size:22px;font-weight:900}
+.first .avatar{border-color:#ffc43d;width:72px;height:72px;font-size:26px}
+.name{overflow:hidden;margin-top:7px;font-weight:900;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
+.store{min-height:28px;color:#c6d3df;font-size:11px}
+.ca{margin-top:8px;font-size:18px;font-weight:900}
+.first .ca{color:#ffd34e;font-size:20px}
+.table{overflow:hidden;border:1px solid #244866;border-radius:16px;background:#071a31}
+.table:empty{display:none}
+.row{display:grid;grid-template-columns:28px 1.25fr 1fr 88px;align-items:center;gap:5px;padding:11px 8px;border-bottom:1px solid #173550;font-size:13px}
+.row:last-child{border-bottom:0}
+.row.head{color:var(--muted);font-size:10px;font-weight:800}
+.ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.money{text-align:right;font-weight:800}
+.panel{margin-top:18px;padding:16px;border:1px solid #1f6da1;border-radius:18px;background:#081d36}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.stats > div{border-right:1px solid #28435e}
+.stats > div:last-child{border-right:0}
+.stats strong{display:block;font-size:22px}
+.progress{height:18px;margin-top:12px;overflow:hidden;border:1px solid #265172;border-radius:20px}
+.progress-bar{height:100%;background:linear-gradient(90deg,#2bdc74,#84f68c)}
+.empty{padding:25px;color:var(--muted);text-align:center}
+.hidden{display:none}
+.footer{margin-top:16px;text-align:center}
+</style>
 </head>
 <body>
-<main class="app">
-  <div class="brand"><div class="logo">BUT</div><div>CUISINES<div class="small">GRAND EST · JPO</div><div class="asof">Mise à jour au 13 novembre 2026</div></div></div>
-  <div id="rankingsPage">
-  <section class="region"><div>🏆 <b>GRAND EST</b><div><span class="rank">#11</span> au national</div><span class="up">▲ +8,5 % vs N−1</span></div><div><b>2 002 K€</b><div class="small">CA Cuisine</div></div></section>
-  <div class="tabs"><button class="tab active" data-view="sellers">👤 Vendeurs</button><button class="tab" data-view="stores">🏬 Magasins</button></div>
-  <section id="sellers"><div class="title"><h1>CLASSEMENT VENDEURS</h1><b>CA TTC CUISINE BUFFET</b></div><div class="podium" id="sellerPodium"></div><div class="table" id="sellerTable"></div></section>
-  <section id="stores" class="hide"><div class="title"><h1>CLASSEMENT MAGASINS</h1><b>CA TTC CUISINE</b></div><div class="podium" id="storePodium"></div><div class="table" id="storeTable"></div></section>
-  <section class="panel"><div class="bigstats"><div><strong>11e</strong><span class="small">/14 national</span></div><div><strong>2 002 K€</strong><span class="small">CA Cuisine</span></div><div><strong class="up">+8,5%</strong><span class="small">vs N−1</span></div></div><div style="margin-top:16px"><b>Objectif minimum région JPO</b><div class="progress"><div class="bar"></div></div><div class="small" style="margin-top:5px">2 002 K€ / 2 078 K€ · 96,3%</div></div></section>
+<div class="app">
+  <header class="brand">
+    <div class="logo">BUT</div>
+    <div>
+      <span id="brandText">CUISINES</span>
+      <div class="small" id="regionHeader"></div>
+      <div class="date" id="updateDate"></div>
+    </div>
+  </header>
+
+  <section class="region">
+    <div>
+      <strong id="regionName"></strong>
+      <div><span class="rank" id="regionRank"></span> au national</div>
+      <div id="regionGrowth"></div>
+    </div>
+    <div>
+      <strong id="regionRevenue"></strong>
+      <div class="small">CA Cuisine</div>
+    </div>
+  </section>
+
+  <div class="tabs">
+    <button class="tab active" data-view="sellers">Vendeurs</button>
+    <button class="tab" data-view="stores">Magasins</button>
   </div>
-  <section id="challengesPage" class="hide"><div class="title"><h1>CHALLENGE RÉGIONAL</h1><b>MANCHE RETOUR · DU 23 AU 26 OCTOBRE</b></div><img class="challenge-poster" src="duel-manche-retour.png" alt="Duel des régions, manche retour entre la Bourgogne-Savoie et le Grand Est"><section class="panel"><div class="bigstats"><div><strong>2 002</strong><span class="small">K€ réalisés</span></div><div><strong>2 078</strong><span class="small">K€ objectif minimum</span></div><div><strong class="up">96,3%</strong><span class="small">atteints</span></div></div><div class="progress"><div class="bar"></div></div></section></section>
-  <section id="newsPage" class="hide"><div class="title"><h1>ACTUALITÉS</h1><b>INFORMATIONS DU MOMENT</b></div><article class="news-card featured"><div class="news-copy"><h2>✨ Nouvelle fonctionnalité disponible sur Planner</h2><p>Lorsque vous faites un clic droit sur un meuble, vous accédez directement à un menu rapide proposant six fonctions : <b>modifier, replacer, ouvrir, positionner, dupliquer et supprimer</b>.</p><p>Vous bénéficiez également d’un accès plus rapide à l’éditeur de plan de travail.</p></div></article><article class="news-card"><div class="news-copy"><h2>Cuisine Weeks</h2><p>Jusqu’à <b>−40 %</b> sur une sélection de cuisines et plans de travail, avec paiement en <b>20 fois sans frais</b>.</p><p class="small">Offre valable jusqu’au 26 octobre 2026. Voir conditions en magasin.</p></div></article><article class="news-card"><div class="news-copy"><h2>Applicatif Planner HOP</h2><p>Bonjour à tous,</p><p>La gamme HOP est actuellement en cours de déploiement sur le SMO. Le Planner n’est pas encore disponible à ce jour. Dès sa mise en service, une communication dédiée vous sera adressée.</p><p>Dans cette attente, merci de ne pas cliquer sur le bouton HOP. Nous vous remercions pour votre patience et votre compréhension.</p></div></article></section>
-</main>
-<footer class="footer"><div class="footerin"><button class="nav active" data-page="rankingsPage">🏆<br>Classement</button><button class="nav" data-page="challengesPage">🎯<br>Challenges</button><button class="nav news-alert" data-page="newsPage">📣<br>Actualités</button></div></footer>
+
+  <section id="sellers">
+    <div class="title"><h2>Classement vendeurs</h2><div class="small" id="sellerMetric"></div></div>
+    <div class="podium" id="sellerPodium"></div>
+    <div class="table" id="sellerTable"></div>
+  </section>
+
+  <section id="stores" class="hidden">
+    <div class="title"><h2>Classement magasins</h2><div class="small">CA TTC Cuisine</div></div>
+    <div class="podium" id="storePodium"></div>
+    <div class="table" id="storeTable"></div>
+  </section>
+
+  <section class="panel">
+    <div class="stats">
+      <div><strong id="summaryRank"></strong><span class="small">Classement</span></div>
+      <div><strong id="summaryRevenue"></strong><span class="small">CA Cuisine</span></div>
+      <div><strong id="summaryGrowth"></strong><span class="small">vs N−1</span></div>
+    </div>
+    <div id="objectiveBlock" style="margin-top:16px">
+      <strong>Objectif régional</strong>
+      <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="small" id="objectiveText" style="margin-top:6px"></div>
+    </div>
+  </section>
+  <div class="footer small" id="source"></div>
+</div>
 <script>
-const sellers=[
-  {name:'Smahan',store:'Mulhouse',ca:297713,face:'👩🏽'},
-  {name:'Déborah',store:'Cosy Saint-Dié',ca:158974,face:'👩🏻'},
-  {name:'Thierry',store:'Épinal',ca:153250,face:'👨🏻'},
-  {name:'Odile',store:'Saint-Dizier',ca:136156,face:'👩🏻'},
-  {name:'Stéphane',store:'Strasbourg Nord',ca:125203,face:'👨🏻'},
-  {name:'Daniel',store:'Sélestat',ca:109561,face:'👨🏻',glasses:true},
-  {name:'Ayoub',store:'Colmar',ca:92430,face:'👨🏽'},
-  {name:'Aurélie',store:'Metz',ca:90542,face:'👩🏻'},
-  {name:'Fatma',store:'Sélestat',ca:81673,face:'👩🏽'},
-  {name:'Jean-Michel',store:'Strasbourg Nord',ca:78573,face:'👨🏻'},
-  {name:'Émilie',store:'Thionville',ca:78398,face:'👩🏻'},
-  {name:'Bilal',store:'Saint-Avold',ca:72754,face:'👨🏽'},
-  {name:'Guillaume',store:'Metz',ca:67338,face:'👨🏻'},
-  {name:'Styvens',store:'Nancy',ca:63661,face:'👨🏻'},
-  {name:'Ilian',store:'Thionville',ca:58408,face:'👨🏻'},
-  {name:'Emmanuelle',store:'Sarreguemines',ca:49848,face:'👩🏻'},
-  {name:'Cédric',store:'Strasbourg Nord',ca:49386,face:'👨🏻'},
-  {name:'Louise',store:'Remiremont',ca:41436,face:'👩🏻'},
-  {name:'Olivier',store:'Nancy',ca:41332,face:'👨🏻'},
-  {name:'Johann',store:'Belfort',ca:24315,face:'👨🏻'},
-  {name:'Émilie Z.',store:'Colmar',ca:3838,face:'👩🏻'},
-  {name:'Florian',store:'Épinal',ca:2929,face:'👨🏻'},
-  {name:'Yohan',store:'Épinal',ca:2829,face:'👨🏻'},
-  {name:'Inès',store:'Sélestat',ca:1702,face:'👩🏽'},
-  {name:'Marlon',store:'Remiremont',ca:1398,face:'👨🏻'},
-  {name:'Nathalie',store:'Cosy Sarrebourg',ca:542,face:'👩🏻'},
-  {name:'Julie',store:'Metz',ca:388,face:'👩🏻'},
-  {name:'Sébastien',store:'Mulhouse',ca:227,face:'👨🏻'},
-  {name:'Turgay',store:'Strasbourg Nord',ca:0,face:'👨🏻'},
-  {name:'Pierrick',store:'Thionville',ca:0,face:'👨🏻'},
-  {name:'Malo',store:'Colmar',ca:-1212,face:'👨🏻'}
-];
-const stores=[
-  {name:'Mulhouse',ca:308000},{name:'Strasbourg Nord',ca:259000},{name:'Sélestat',ca:200000},{name:'Metz',ca:175000},{name:'Cosy Saint-Dié',ca:168000},{name:'Épinal',ca:166000},{name:'Thionville',ca:150000},{name:'Saint-Dizier',ca:146000},{name:'Nancy',ca:112000},{name:'Colmar',ca:103000},{name:'Saint-Avold',ca:79000},{name:'Sarreguemines',ca:53000},{name:'Remiremont',ca:47000},{name:'Belfort',ca:35000},{name:'Cosy Sarrebourg',ca:3000}
-];
-const euro=v=>v.toLocaleString('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0});
-const avatar=x=>`<div class="avatar">${x.face||'🏬'}${x.glasses?'<span class="glasses">👓</span>':''}</div>`;
-function renderSellers(){const order=[1,0,2];document.getElementById('sellerPodium').innerHTML=order.map(i=>`<div class="p ${i===0?'first pulse':''}"><div class="medal">${['🥇','🥈','🥉'][i]}</div>${sellers[i].newLeader?'<div class="leader-badge">✨ Nouveau leader ✨</div>':''}${avatar(sellers[i])}<div class="name">${sellers[i].name}</div><div class="store">${sellers[i].store}</div><div class="ca">${euro(sellers[i].ca)}</div></div>`).join('');document.getElementById('sellerTable').innerHTML='<div class="row head"><div>#</div><div>VENDEUR</div><div>MAGASIN</div><div style="text-align:right">CA BUFFET</div></div>'+sellers.slice(3).map((x,j)=>`<div class="row"><b>${j+4}</b><b>${x.name}</b><span class="small">${x.store}</span><span class="money">${euro(x.ca)}</span></div>`).join('')}
-function renderStores(){const total=2002000;const part=x=>(x.ca/total*100).toLocaleString('fr-FR',{maximumFractionDigits:1})+' % de la région';const order=[1,0,2];document.getElementById('storePodium').innerHTML=order.map(i=>`<div class="p ${i===0?'first pulse':''}"><div class="medal">${['🥇','🥈','🥉'][i]}</div>${avatar({face:'🏬'})}<div class="name">${stores[i].name}</div><div class="store">${part(stores[i])}</div><div class="ca">${euro(stores[i].ca)}</div></div>`).join('');document.getElementById('storeTable').innerHTML='<div class="row head"><div>#</div><div>MAGASIN</div><div>PART RÉGION</div><div style="text-align:right">CA CUISINE</div></div>'+stores.slice(3).map((x,j)=>`<div class="row"><b>${j+4}</b><b>${x.name}</b><span class="small">${part(x)}</span><span class="money">${euro(x.ca)}</span></div>`).join('')}
-renderSellers();renderStores();document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('sellers').classList.toggle('hide',b.dataset.view!=='sellers');document.getElementById('stores').classList.toggle('hide',b.dataset.view!=='stores')}));document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));b.classList.add('active');['rankingsPage','challengesPage','newsPage'].forEach(id=>document.getElementById(id).classList.toggle('hide',id!==b.dataset.page));window.scrollTo({top:0,behavior:'smooth'})}));
+const DATA = {"brand":"CUISINES","title":"JPO","application":{"region":"GRAND EST","date":"16/11/2026","rank":11,"revenue":2076000,"growth":3.9,"objective":0},"sellerMetric":{"label":"Dont CA TTC Cuisine Buffet","percent":false},"sellers":[{"name":"SMAHAN HAIDA","sub":"MULHOUSE","value":298418,"avatar":"SH"},{"name":"THIERRY CAGNIN","sub":"EPINAL","value":161911,"avatar":"TC"},{"name":"DEBORAH CLAUDON","sub":"COSY SAINT DIE","value":159013,"avatar":"DC"},{"name":"ODILE LEFORT","sub":"SAINT - DIZIER","value":136199,"avatar":"OL"},{"name":"STEPHANE HEITMANN","sub":"STRASBOURG NORD","value":131924,"avatar":"SH"},{"name":"DANIEL METZ","sub":"SELESTAT","value":109561,"avatar":"DM"},{"name":"AYOUB AKRAM","sub":"COLMAR","value":107616,"avatar":"AA"},{"name":"AURELIE KRAN","sub":"METZ","value":100258,"avatar":"AK"},{"name":"FATMA DUMAN","sub":"SELESTAT","value":81733,"avatar":"FD"},{"name":"EMILIE MOSCATELLI","sub":"THIONVILLE","value":81294,"avatar":"EM"},{"name":"JEAN MICHEL HARTMANN","sub":"STRASBOURG NORD","value":78498,"avatar":"JH"},{"name":"BILAL ASLAN","sub":"SAINT - AVOLD","value":74414,"avatar":"BA"},{"name":"STYVENS OLIVIER","sub":"NANCY","value":71109,"avatar":"SO"},{"name":"GUILLAUME BERNARD","sub":"METZ","value":62798,"avatar":"GB"},{"name":"ILIAN SATTALAH","sub":"THIONVILLE","value":60135,"avatar":"IS"},{"name":"CEDRIC SCHAULY","sub":"STRASBOURG NORD","value":54690,"avatar":"CS"},{"name":"EMMANUELLE CASTILLO","sub":"SARREGUEMINES","value":49508,"avatar":"EC"},{"name":"LOUISE GOUBILLOT","sub":"REMIREMONT","value":41850,"avatar":"LG"},{"name":"OLIVIER THIRION","sub":"NANCY","value":41376,"avatar":"OT"},{"name":"JOHANN SOUTTRE","sub":"BELFORT","value":24483,"avatar":"JS"},{"name":"MARLON INFANTE","sub":"REMIREMONT","value":9634,"avatar":"MI"},{"name":"EMILIE ZIMMERMANN","sub":"COLMAR","value":3838,"avatar":"EZ"},{"name":"RONALD BASSEET","sub":"METZ","value":3131,"avatar":"RB"},{"name":"FLORIAN TAHER","sub":"EPINAL","value":2929,"avatar":"FT"},{"name":"YOHAN MARCHAL","sub":"EPINAL","value":2829,"avatar":"YM"},{"name":"INES TARFAOUI","sub":"SELESTAT","value":1702,"avatar":"IT"},{"name":"NATHALIE BOUCHER","sub":"COSY SARREBOURG","value":542,"avatar":"NB"},{"name":"JULIE NUSS","sub":"METZ","value":388,"avatar":"JN"},{"name":"SEBASTIEN LEUCK","sub":"MULHOUSE","value":227,"avatar":"SL"}],"stores":[{"name":"MULHOUSE","sub":"N° 13 national","growth":26.3,"value":310000,"avatar":"🏬"},{"name":"STRASBOURG NORD","sub":"N° 23 national","growth":8.1,"value":272000,"avatar":"🏬"},{"name":"SELESTAT","sub":"N° 61 national","growth":119.3,"value":200000,"avatar":"🏬"},{"name":"METZ","sub":"N° 78 national","growth":-30.3,"value":182000,"avatar":"🏬"},{"name":"EPINAL","sub":"N° 84 national","growth":17.3,"value":175000,"avatar":"🏬"},{"name":"COSY SAINT DIE","sub":"N° 92 national","growth":13.9,"value":168000,"avatar":"🏬"},{"name":"THIONVILLE","sub":"N° 104 national","growth":-26.4,"value":155000,"avatar":"🏬"},{"name":"SAINT - DIZIER","sub":"N° 120 national","growth":13.5,"value":147000,"avatar":"🏬"},{"name":"NANCY","sub":"N° 156 national","growth":2.5,"value":119000,"avatar":"🏬"},{"name":"COLMAR","sub":"N° 157 national","growth":40.1,"value":118000,"avatar":"🏬"},{"name":"SAINT - AVOLD","sub":"N° 212 national","growth":-9.6,"value":80000,"avatar":"🏬"},{"name":"REMIREMONT","sub":"N° 255 national","growth":-1.5,"value":56000,"avatar":"🏬"},{"name":"SARREGUEMINES","sub":"N° 261 national","growth":-0.1,"value":53000,"avatar":"🏬"},{"name":"BELFORT","sub":"N° 296 national","growth":-60.4,"value":37000,"avatar":"🏬"},{"name":"COSY SARREBOURG","sub":"N° 334 national","growth":-85.5,"value":3000,"avatar":"🏬"}],"source":"STATSB.pptx"};
+function challengeRuntime(D) {
+  const application = D.application;
+  const sellers = D.sellers;
+  const stores = D.stores;
+
+  const esc = v => String(v == null ? "" : v).replace(/[&<>"']/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const euro = value => Number(value).toLocaleString("fr-FR", {
+    style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+  const percent = value => Number(value).toLocaleString("fr-FR", { maximumFractionDigits: 1 }) + " %";
+  const sellerValue = v => D.sellerMetric.percent ? percent(v) : euro(v);
+  const trend = g => (g == null || g === 0) ? "" :
+    `<span class="${g > 0 ? "up" : "down"}">${g > 0 ? "▲" : "▼"} ${percent(Math.abs(g))}</span>`;
+  const $ = id => document.getElementById(id);
+
+  document.title = D.title + (application.region ? " – " + application.region : "");
+  $("brandText").textContent = D.brand;
+  $("regionHeader").textContent = D.title + (application.region ? " · " + application.region : "");
+  $("updateDate").textContent = application.date ? "Mise à jour au " + application.date : "";
+  $("regionName").textContent = application.region;
+  $("regionRank").textContent = application.rank ? "#" + application.rank : "—";
+  $("regionGrowth").innerHTML = application.growth ? trend(application.growth) + " vs N−1" : "";
+  $("regionRevenue").textContent = euro(application.revenue);
+  $("summaryRank").textContent = application.rank ? application.rank + "e" : "—";
+  $("summaryRevenue").textContent = euro(application.revenue);
+  $("summaryGrowth").innerHTML = trend(application.growth) || "—";
+  $("sellerMetric").textContent = D.sellerMetric.label;
+  $("source").textContent = D.source ? "Source : " + D.source : "";
+
+  if (application.objective) {
+    const achievement = application.revenue / application.objective * 100;
+    $("progressBar").style.width = Math.min(achievement, 100) + "%";
+    $("objectiveText").textContent = euro(application.revenue) + " / " + euro(application.objective) + " · " + percent(achievement);
+  } else {
+    $("objectiveBlock").style.display = "none";
+  }
+
+  function podium(items, fmt) {
+    if (!items.length) return '<div class="empty">Aucune donnée disponible</div>';
+    const medals = ["🥇", "🥈", "🥉"];
+    const top = items.slice(0, 3);
+    const order = top.length === 3 ? [1, 0, 2] : top.map((_, i) => i);
+    return order.map(index => {
+      const item = top[index];
+      return `<div class="podium-card ${index === 0 ? "first" : ""}">
+        <div class="medal">${medals[index]}</div>
+        <div class="avatar">${esc(item.avatar || "👤")}</div>
+        <div class="name" title="${esc(item.name)}">${esc(item.name)}</div>
+        <div class="store">${esc(item.sub)}${item.growth != null ? "<br>" + trend(item.growth) : ""}</div>
+        <div class="ca">${fmt(item.value)}</div>
+      </div>`;
+    }).join("");
+  }
+
+  function table(items, fmt, colLabel) {
+    if (items.length <= 3) return "";
+    const rows = items.slice(3).map((item, index) => `<div class="row">
+        <strong>${index + 4}</strong>
+        <strong class="ellipsis" title="${esc(item.name)}">${esc(item.name)}</strong>
+        <span class="small">${esc(item.sub)}${item.growth != null ? " " + trend(item.growth) : ""}</span>
+        <span class="money">${fmt(item.value)}</span>
+      </div>`).join("");
+    return `<div class="row head"><div>#</div><div>NOM</div><div>${colLabel}</div><div style="text-align:right">${D.sellerMetric.percent && colLabel === "MAGASIN" ? "VALEUR" : "CA"}</div></div>${rows}`;
+  }
+
+  $("sellerPodium").innerHTML = podium(sellers, sellerValue);
+  $("sellerTable").innerHTML = table(sellers, sellerValue, "MAGASIN");
+  $("storePodium").innerHTML = podium(stores, euro);
+  $("storeTable").innerHTML = table(stores, euro, "RANG NATIONAL");
+
+  document.querySelectorAll(".tab").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+      button.classList.add("active");
+      $("sellers").classList.toggle("hidden", button.dataset.view !== "sellers");
+      $("stores").classList.toggle("hidden", button.dataset.view !== "stores");
+    });
+  });
+}
+challengeRuntime(DATA);
 </script>
 </body>
 </html>
