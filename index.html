@@ -28,6 +28,8 @@ body{margin:0;background:radial-gradient(circle at 50% 0,#103a63,#07172c 40%,#04
 .podium-card.first{padding-top:20px;border-color:#ffc43d;box-shadow:0 0 25px #ffc43d55;transform:translateY(-10px)}
 .medal{font-size:24px}
 .avatar{display:grid;width:64px;height:64px;margin:auto;place-items:center;border:4px solid #b8d8ff;border-radius:50%;background:#173f67;font-size:22px;font-weight:900}
+.avatar svg{width:100%;height:100%;display:block;border-radius:50%}
+.leader-banner{margin:-14px -2px 8px;padding:5px 3px;border-radius:12px;background:linear-gradient(90deg,#e30613,#ff3558);color:#fff;font-size:9px;font-weight:900;letter-spacing:.06em;box-shadow:0 4px 12px #e3061366}
 .first .avatar{border-color:#ffc43d;width:72px;height:72px;font-size:26px}
 .name{overflow:hidden;margin-top:7px;font-weight:900;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
 .store{min-height:28px;color:#c6d3df;font-size:11px}
@@ -49,6 +51,15 @@ body{margin:0;background:radial-gradient(circle at 50% 0,#103a63,#07172c 40%,#04
 .progress-bar{height:100%;background:linear-gradient(90deg,#2bdc74,#84f68c)}
 .empty{padding:25px;color:var(--muted);text-align:center}
 .hidden{display:none}
+.content-card{overflow:hidden;margin:20px 0;border:1px solid #2d638d;border-radius:20px;background:linear-gradient(180deg,#10385c,#081a31);box-shadow:0 12px 30px #0004}
+.content-card.challenge{border-color:#e30613}
+.content-card img{display:block;width:100%;max-height:360px;object-fit:cover;background:#fff}
+.content-body{padding:18px}
+.content-kicker{display:inline-block;padding:5px 9px;border-radius:20px;background:#e30613;font-size:11px;font-weight:900;letter-spacing:.08em}
+.content-card h2{margin:10px 0 6px;font-size:24px}
+.content-card p{margin:12px 0 0;line-height:1.55;color:#d8e4ef}
+.content-date{color:#7fdfff;font-size:12px;font-weight:800}
+.tab[hidden]{display:none}
 .footer{margin-top:16px;text-align:center}
 </style>
 </head>
@@ -78,6 +89,8 @@ body{margin:0;background:radial-gradient(circle at 50% 0,#103a63,#07172c 40%,#04
   <div class="tabs">
     <button class="tab active" data-view="sellers">Vendeurs</button>
     <button class="tab" data-view="stores">Magasins</button>
+    <button class="tab" data-view="news">Actus</button>
+    <button class="tab" data-view="challenges">Challenges</button>
   </div>
 
   <section id="sellers">
@@ -91,6 +104,9 @@ body{margin:0;background:radial-gradient(circle at 50% 0,#103a63,#07172c 40%,#04
     <div class="podium" id="storePodium"></div>
     <div class="table" id="storeTable"></div>
   </section>
+
+  <section id="news" class="hidden"><div id="newsContent"></div></section>
+  <section id="challenges" class="hidden"><div id="challengeContent"></div></section>
 
   <section class="panel">
     <div class="stats">
@@ -107,7 +123,7 @@ body{margin:0;background:radial-gradient(circle at 50% 0,#103a63,#07172c 40%,#04
   <div class="footer small" id="source"></div>
 </div>
 <script>
-const DATA = {"brand":"CUISINES","title":"JPO","application":{"region":"GRAND EST","date":"16/11/2026","rank":11,"revenue":2076000,"growth":3.9,"objective":0},"sellerMetric":{"label":"Dont CA TTC Cuisine Buffet","percent":false},"sellers":[{"name":"SMAHAN HAIDA","sub":"MULHOUSE","value":298418,"avatar":"SH"},{"name":"THIERRY CAGNIN","sub":"EPINAL","value":161911,"avatar":"TC"},{"name":"DEBORAH CLAUDON","sub":"COSY SAINT DIE","value":159013,"avatar":"DC"},{"name":"ODILE LEFORT","sub":"SAINT - DIZIER","value":136199,"avatar":"OL"},{"name":"STEPHANE HEITMANN","sub":"STRASBOURG NORD","value":131924,"avatar":"SH"},{"name":"DANIEL METZ","sub":"SELESTAT","value":109561,"avatar":"DM"},{"name":"AYOUB AKRAM","sub":"COLMAR","value":107616,"avatar":"AA"},{"name":"AURELIE KRAN","sub":"METZ","value":100258,"avatar":"AK"},{"name":"FATMA DUMAN","sub":"SELESTAT","value":81733,"avatar":"FD"},{"name":"EMILIE MOSCATELLI","sub":"THIONVILLE","value":81294,"avatar":"EM"},{"name":"JEAN MICHEL HARTMANN","sub":"STRASBOURG NORD","value":78498,"avatar":"JH"},{"name":"BILAL ASLAN","sub":"SAINT - AVOLD","value":74414,"avatar":"BA"},{"name":"STYVENS OLIVIER","sub":"NANCY","value":71109,"avatar":"SO"},{"name":"GUILLAUME BERNARD","sub":"METZ","value":62798,"avatar":"GB"},{"name":"ILIAN SATTALAH","sub":"THIONVILLE","value":60135,"avatar":"IS"},{"name":"CEDRIC SCHAULY","sub":"STRASBOURG NORD","value":54690,"avatar":"CS"},{"name":"EMMANUELLE CASTILLO","sub":"SARREGUEMINES","value":49508,"avatar":"EC"},{"name":"LOUISE GOUBILLOT","sub":"REMIREMONT","value":41850,"avatar":"LG"},{"name":"OLIVIER THIRION","sub":"NANCY","value":41376,"avatar":"OT"},{"name":"JOHANN SOUTTRE","sub":"BELFORT","value":24483,"avatar":"JS"},{"name":"MARLON INFANTE","sub":"REMIREMONT","value":9634,"avatar":"MI"},{"name":"EMILIE ZIMMERMANN","sub":"COLMAR","value":3838,"avatar":"EZ"},{"name":"RONALD BASSEET","sub":"METZ","value":3131,"avatar":"RB"},{"name":"FLORIAN TAHER","sub":"EPINAL","value":2929,"avatar":"FT"},{"name":"YOHAN MARCHAL","sub":"EPINAL","value":2829,"avatar":"YM"},{"name":"INES TARFAOUI","sub":"SELESTAT","value":1702,"avatar":"IT"},{"name":"NATHALIE BOUCHER","sub":"COSY SARREBOURG","value":542,"avatar":"NB"},{"name":"JULIE NUSS","sub":"METZ","value":388,"avatar":"JN"},{"name":"SEBASTIEN LEUCK","sub":"MULHOUSE","value":227,"avatar":"SL"}],"stores":[{"name":"MULHOUSE","sub":"N° 13 national","growth":26.3,"value":310000,"avatar":"🏬"},{"name":"STRASBOURG NORD","sub":"N° 23 national","growth":8.1,"value":272000,"avatar":"🏬"},{"name":"SELESTAT","sub":"N° 61 national","growth":119.3,"value":200000,"avatar":"🏬"},{"name":"METZ","sub":"N° 78 national","growth":-30.3,"value":182000,"avatar":"🏬"},{"name":"EPINAL","sub":"N° 84 national","growth":17.3,"value":175000,"avatar":"🏬"},{"name":"COSY SAINT DIE","sub":"N° 92 national","growth":13.9,"value":168000,"avatar":"🏬"},{"name":"THIONVILLE","sub":"N° 104 national","growth":-26.4,"value":155000,"avatar":"🏬"},{"name":"SAINT - DIZIER","sub":"N° 120 national","growth":13.5,"value":147000,"avatar":"🏬"},{"name":"NANCY","sub":"N° 156 national","growth":2.5,"value":119000,"avatar":"🏬"},{"name":"COLMAR","sub":"N° 157 national","growth":40.1,"value":118000,"avatar":"🏬"},{"name":"SAINT - AVOLD","sub":"N° 212 national","growth":-9.6,"value":80000,"avatar":"🏬"},{"name":"REMIREMONT","sub":"N° 255 national","growth":-1.5,"value":56000,"avatar":"🏬"},{"name":"SARREGUEMINES","sub":"N° 261 national","growth":-0.1,"value":53000,"avatar":"🏬"},{"name":"BELFORT","sub":"N° 296 national","growth":-60.4,"value":37000,"avatar":"🏬"},{"name":"COSY SARREBOURG","sub":"N° 334 national","growth":-85.5,"value":3000,"avatar":"🏬"}],"source":"STATSB.pptx"};
+const DATA = {"brand":"CUISINES","title":"JPO","application":{"region":"GRAND EST","date":"18/11/2026","rank":11,"revenue":2132000,"growth":2.2,"objective":0},"sellerMetric":{"label":"Dont CA TTC Cuisine Buffet","percent":false},"newLeader":false,"sellers":[{"name":"SMAHAN HAIDA","sub":"MULHOUSE","value":301971,"avatar":"SH"},{"name":"THIERRY CAGNIN","sub":"EPINAL","value":171863,"avatar":"TC"},{"name":"DEBORAH CLAUDON","sub":"COSY SAINT DIE","value":164805,"avatar":"DC"},{"name":"ODILE LEFORT","sub":"SAINT - DIZIER","value":144991,"avatar":"OL"},{"name":"STEPHANE HEITMANN","sub":"STRASBOURG NORD","value":131975,"avatar":"SH"},{"name":"AYOUB AKRAM","sub":"COLMAR","value":115288,"avatar":"AA"},{"name":"AURELIE KRAN","sub":"METZ","value":112352,"avatar":"AK"},{"name":"DANIEL METZ","sub":"SELESTAT","value":109715,"avatar":"DM"},{"name":"FATMA DUMAN","sub":"SELESTAT","value":85908,"avatar":"FD"},{"name":"EMILIE MOSCATELLI","sub":"THIONVILLE","value":81519,"avatar":"EM"},{"name":"JEAN MICHEL HARTMANN","sub":"STRASBOURG NORD","value":81237,"avatar":"JH"},{"name":"BILAL ASLAN","sub":"SAINT - AVOLD","value":77071,"avatar":"BA"},{"name":"STYVENS OLIVIER","sub":"NANCY","value":71109,"avatar":"SO"},{"name":"GUILLAUME BERNARD","sub":"METZ","value":63033,"avatar":"GB"},{"name":"ILIAN SATTALAH","sub":"THIONVILLE","value":60238,"avatar":"IS"},{"name":"CEDRIC SCHAULY","sub":"STRASBOURG NORD","value":54690,"avatar":"CS"},{"name":"EMMANUELLE CASTILLO","sub":"SARREGUEMINES","value":50694,"avatar":"EC"},{"name":"LOUISE GOUBILLOT","sub":"REMIREMONT","value":41759,"avatar":"LG"},{"name":"OLIVIER THIRION","sub":"NANCY","value":41376,"avatar":"OT"},{"name":"JOHANN SOUTTRE","sub":"BELFORT","value":23591,"avatar":"JS"},{"name":"MARLON INFANTE","sub":"REMIREMONT","value":9443,"avatar":"MI"},{"name":"RONALD BASSEET","sub":"METZ","value":3857,"avatar":"RB"},{"name":"EMILIE ZIMMERMANN","sub":"COLMAR","value":3838,"avatar":"EZ"},{"name":"YOHAN MARCHAL","sub":"EPINAL","value":2829,"avatar":"YM"},{"name":"FLORIAN TAHER","sub":"EPINAL","value":2799,"avatar":"FT"},{"name":"INES TARFAOUI","sub":"SELESTAT","value":1702,"avatar":"IT"},{"name":"NATHALIE BOUCHER","sub":"COSY SARREBOURG","value":542,"avatar":"NB"},{"name":"JULIE NUSS","sub":"METZ","value":388,"avatar":"JN"},{"name":"SEBASTIEN LEUCK","sub":"MULHOUSE","value":227,"avatar":"SL"}],"stores":[{"name":"MULHOUSE","sub":"N° 13 national","growth":16.5,"value":314000,"avatar":"🏬"},{"name":"STRASBOURG NORD","sub":"N° 26 national","growth":5.8,"value":275000,"avatar":"🏬"},{"name":"SELESTAT","sub":"N° 61 national","growth":116.2,"value":204000,"avatar":"🏬"},{"name":"METZ","sub":"N° 71 national","growth":-28,"value":190000,"avatar":"🏬"},{"name":"EPINAL","sub":"N° 77 national","growth":20.9,"value":185000,"avatar":"🏬"},{"name":"COSY SAINT DIE","sub":"N° 89 national","growth":2.7,"value":174000,"avatar":"🏬"},{"name":"THIONVILLE","sub":"N° 109 national","growth":-26.3,"value":156000,"avatar":"🏬"},{"name":"SAINT - DIZIER","sub":"N° 110 national","growth":12.5,"value":156000,"avatar":"🏬"},{"name":"COLMAR","sub":"N° 150 national","growth":46.7,"value":126000,"avatar":"🏬"},{"name":"NANCY","sub":"N° 160 national","growth":-5.7,"value":120000,"avatar":"🏬"},{"name":"SAINT - AVOLD","sub":"N° 208 national","growth":-6.7,"value":83000,"avatar":"🏬"},{"name":"REMIREMONT","sub":"N° 258 national","growth":-2.6,"value":55000,"avatar":"🏬"},{"name":"SARREGUEMINES","sub":"N° 261 national","growth":2.2,"value":54000,"avatar":"🏬"},{"name":"BELFORT","sub":"N° 296 national","growth":-61.6,"value":36000,"avatar":"🏬"},{"name":"COSY SARREBOURG","sub":"N° 334 national","growth":-85.6,"value":3000,"avatar":"🏬"}],"news":null,"challenge":null,"source":"STATSB.pptx"};
 function challengeRuntime(D) {
   const application = D.application;
   const sellers = D.sellers;
@@ -122,6 +138,26 @@ function challengeRuntime(D) {
   const trend = g => (g == null || g === 0) ? "" :
     `<span class="${g > 0 ? "up" : "down"}">${g > 0 ? "▲" : "▼"} ${percent(Math.abs(g))}</span>`;
   const $ = id => document.getElementById(id);
+  const hash = text => [...String(text)].reduce((h, c) => ((h << 5) - h + c.charCodeAt(0)) | 0, 0);
+  const butJersey = '<path d="M4 58c2-13 11-19 25-19s23 6 25 19" fill="#081c3a"/><path d="M17 43l12 9 12-9-5-3-7 5-7-5z" fill="#62c9ed"/><rect x="22" y="48" width="14" height="8" rx="1.5" fill="#e30613"/><text x="29" y="54.2" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="900" fill="#fff">BUT</text>';
+  const animalAvatar = name => {
+    const h = Math.abs(hash(name)), type = h % 6;
+    const bg = ["#ffd93d", "#6bcbef", "#b8f2c8", "#d8c2ff", "#ffb3c7", "#ffcc80"][type];
+    const colors = ["#f59e42", "#9b6b43", "#f1f4f8", "#7bc96f", "#b58bd8", "#59b7c8"];
+    const c = colors[type];
+    const ears = [
+      '<path d="M15 17L10 4l13 8M43 17L48 4 35 12" fill="#f59e42"/>',
+      '<circle cx="15" cy="13" r="9" fill="#9b6b43"/><circle cx="43" cy="13" r="9" fill="#9b6b43"/>',
+      '<path d="M18 15C8 4 8 0 14 2c6 3 9 9 10 13M40 15C50 4 50 0 44 2c-6 3-9 9-10 13" fill="#f1f4f8"/>',
+      '<circle cx="16" cy="12" r="7" fill="#7bc96f"/><circle cx="42" cy="12" r="7" fill="#7bc96f"/>',
+      '<path d="M17 17L12 5l12 7M41 17L46 5 34 12" fill="#b58bd8"/>',
+      '<path d="M16 17Q5 9 10 4q11 2 16 11M42 17Q53 9 48 4 37 6 32 15" fill="#59b7c8"/>'
+    ][type];
+    const muzzle = type === 3 ? '<ellipse cx="29" cy="33" rx="10" ry="7" fill="#d8f0b7"/><path d="M21 35q8 7 16 0" fill="none" stroke="#17492c" stroke-width="2"/>' : '<ellipse cx="29" cy="34" rx="10" ry="8" fill="#fff" opacity=".72"/><circle cx="29" cy="31" r="2.6" fill="#172033"/><path d="M24 36q5 5 10 0" fill="none" stroke="#8f3440" stroke-width="2" stroke-linecap="round"/>';
+    return `<svg viewBox="0 0 58 58" aria-hidden="true"><circle cx="29" cy="29" r="28" fill="${bg}"/>${butJersey}${ears}<circle cx="29" cy="26" r="18" fill="${c}"/><ellipse cx="22" cy="25" rx="2.5" ry="3.5" fill="#14213d"/><ellipse cx="36" cy="25" rx="2.5" ry="3.5" fill="#14213d"/><circle cx="21.4" cy="24" r=".8" fill="#fff"/><circle cx="35.4" cy="24" r=".8" fill="#fff"/>${muzzle}</svg>`;
+  };
+  const avatar = item => item.avatar === "🏬" ? "🏬" : animalAvatar(item.name);
+  const richText = value => esc(value).replace(/\n/g, "<br>");
 
   document.title = D.title + (application.region ? " – " + application.region : "");
   $("brandText").textContent = D.brand;
@@ -145,7 +181,7 @@ function challengeRuntime(D) {
     $("objectiveBlock").style.display = "none";
   }
 
-  function podium(items, fmt) {
+  function podium(items, fmt, showLeader = false) {
     if (!items.length) return '<div class="empty">Aucune donnée disponible</div>';
     const medals = ["🥇", "🥈", "🥉"];
     const top = items.slice(0, 3);
@@ -153,8 +189,9 @@ function challengeRuntime(D) {
     return order.map(index => {
       const item = top[index];
       return `<div class="podium-card ${index === 0 ? "first" : ""}">
+        ${index === 0 && showLeader && D.newLeader ? '<div class="leader-banner">NOUVEAU LEADER</div>' : ""}
         <div class="medal">${medals[index]}</div>
-        <div class="avatar">${esc(item.avatar || "👤")}</div>
+        <div class="avatar">${avatar(item)}</div>
         <div class="name" title="${esc(item.name)}">${esc(item.name)}</div>
         <div class="store">${esc(item.sub)}${item.growth != null ? "<br>" + trend(item.growth) : ""}</div>
         <div class="ca">${fmt(item.value)}</div>
@@ -173,17 +210,34 @@ function challengeRuntime(D) {
     return `<div class="row head"><div>#</div><div>NOM</div><div>${colLabel}</div><div style="text-align:right">${D.sellerMetric.percent && colLabel === "MAGASIN" ? "VALEUR" : "CA"}</div></div>${rows}`;
   }
 
-  $("sellerPodium").innerHTML = podium(sellers, sellerValue);
+  $("sellerPodium").innerHTML = podium(sellers, sellerValue, true);
   $("sellerTable").innerHTML = table(sellers, sellerValue, "MAGASIN");
   $("storePodium").innerHTML = podium(stores, euro);
   $("storeTable").innerHTML = table(stores, euro, "RANG NATIONAL");
+
+  function contentCard(item, kind) {
+    if (!item) return "";
+    const period = item.start || item.end ? `<div class="content-date">${item.start ? "Du " + esc(item.start) : ""}${item.start && item.end ? " au " : ""}${!item.start && item.end ? "Jusqu'au " : ""}${item.end ? esc(item.end) : ""}</div>` : "";
+    return `<article class="content-card ${kind}">
+      ${item.image ? `<img src="${esc(item.image)}" alt="${esc(item.title)}">` : ""}
+      <div class="content-body"><span class="content-kicker">${kind === "news" ? "À LA UNE" : "CHALLENGE"}</span>
+      <h2>${esc(item.title)}</h2>${period}<p>${richText(item.text)}</p></div>
+    </article>`;
+  }
+  if ($("newsContent")) $("newsContent").innerHTML = contentCard(D.news, "news");
+  if ($("challengeContent")) $("challengeContent").innerHTML = contentCard(D.challenge, "challenge");
+
+  document.querySelectorAll('.tab[data-view="news"]').forEach(b => b.hidden = !D.news);
+  document.querySelectorAll('.tab[data-view="challenges"]').forEach(b => b.hidden = !D.challenge);
+  const visibleTabs = [...document.querySelectorAll(".tab")].filter(b => !b.hidden).length;
+  const tabs = document.querySelector(".tabs");
+  if (tabs) tabs.style.gridTemplateColumns = `repeat(${visibleTabs},1fr)`;
 
   document.querySelectorAll(".tab").forEach(button => {
     button.addEventListener("click", () => {
       document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
       button.classList.add("active");
-      $("sellers").classList.toggle("hidden", button.dataset.view !== "sellers");
-      $("stores").classList.toggle("hidden", button.dataset.view !== "stores");
+      ["sellers", "stores", "news", "challenges"].forEach(id => $(id).classList.toggle("hidden", button.dataset.view !== id));
     });
   });
 }
